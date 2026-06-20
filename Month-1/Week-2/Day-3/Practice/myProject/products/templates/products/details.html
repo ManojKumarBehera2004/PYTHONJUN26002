@@ -6,20 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    
-  <h1>{{heading}}</h1>
-
-  {{products}}
-
-  {% for product in products %}
 
   <h1>{{product.id}}</h1>
   <h4>{{product.name}}</h4>
-  <img height="100" src="{{product.img}}" alt="">
-
-  <button><a href="{% url 'details' product.id %}">View More</a></button>
-
-  {% endfor %}
+  <img height="500" src="{{product.img}}" alt="">   
 
 </body>
 </html>

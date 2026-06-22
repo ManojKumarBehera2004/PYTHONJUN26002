@@ -3,7 +3,44 @@
 <head>
     <title>About</title>
 </head>
+<style> 
+  input {
+    width: 300px;
+    padding: 10px;
+  }
+</style>
 <body>
-    <h1>About Movie Project</h1>
+    <h1>Add Movies</h1>
+
+    <input type="text" id="name" placeholder="Enter Movie Name" />
+    <input type="text" id="category" placeholder="Enter Movie Category" />
+    <input type="text" id="desc" placeholder="Enter Movie Description" />
+    <input type="text" id="img" placeholder="Enter Image URL" />
+
+    <button onclick="handleSubmit()">Submit</button>
 </body>
+
+<script>
+    const handleSubmit = () => {
+        const name = document.getElementById("name").value;
+        const category = document.getElementById("category").value;
+        const desc = document.getElementById("desc").value;
+        const img = document.getElementById("img").value;
+
+        const movie = {
+            name: name,
+            category: category,
+            desc: desc,
+            img: img
+        };
+
+        const movies = JSON.parse(localStorage.getItem("movies")) || [];
+        
+        movies.push(movie);
+
+        localStorage.setItem("movies", JSON.stringify(movies));
+        console.log(movie);
+    };
+
+</script>
 </html>

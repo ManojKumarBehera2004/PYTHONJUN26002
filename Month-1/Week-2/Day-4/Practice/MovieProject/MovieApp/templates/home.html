@@ -4,6 +4,27 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Welcome to Movie Project</h1>
+    <h1>Movie List</h1>
+
+    <div id="container"></div>
+
 </body>
+<script> 
+    const showMovies = () => {
+        const movies = JSON.parse(localStorage.getItem("movies")) || [];
+        const container = document.getElementById("container");
+
+        movies.forEach((movie) => {
+            const movieDiv = document.createElement("div");
+            movieDiv.innerHTML += `
+                <h2>${movie.name}</h2>
+                <p>Category: ${movie.category}</p>
+                <p>Description: ${movie.desc}</p>
+                <img src="${movie.img}" alt="${movie.name}" height="200" />
+            `;
+            container.appendChild(movieDiv);
+        });
+    }
+    showMovies();
+</script>
 </html>
